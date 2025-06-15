@@ -95,5 +95,15 @@
   <footer>
     <p>© 2025 Jasper (Ng Jing Heng)</p>
   </footer>
+
+  <script>
+  // Close the mobile nav menu after clicking a link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('toggle').checked = false;
+    });
+  });
+</script>
+
 </body>
 </html>
