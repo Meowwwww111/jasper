@@ -7,6 +7,13 @@ body {
   line-height: 1.6;
 }
 
+/* Prevent navbar from covering anchor-linked sections */
+html {
+  scroll-padding-top: 80px;
+  scroll-behavior: smooth; /* Optional: smooth scrolling */
+}
+
+
 header {
   background-color: #222;
   color: #fff;
