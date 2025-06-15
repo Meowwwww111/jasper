@@ -9,7 +9,7 @@ body {
 
 /* Prevent navbar from covering anchor-linked sections */
 html {
-  scroll-padding-top: 80px;
+  scroll-padding-top: 20px;
   scroll-behavior: smooth; /* Optional: smooth scrolling */
 }
 
