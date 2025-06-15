@@ -70,17 +70,17 @@ html {
   }
 
   .nav-links {
+    display: none;
     flex-direction: column;
     width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-in-out;
+    margin-top: 1rem;
   }
 
   #toggle:checked ~ .nav-links {
-    max-height: 500px; /* large enough for all links */
+    display: flex;
   }
 }
+
 
 
 header {
