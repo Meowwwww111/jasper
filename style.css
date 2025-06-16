@@ -154,4 +154,19 @@ footer {
   }
 }
 
+#contact a {
+  color: black;
+  text-decoration: none;
+}
+
+#contact a:visited,
+#contact a:hover,
+#contact a:active {
+  color: black;
+  text-decoration: none;
+}
+
+#contact i {
+  margin-right: 0.5rem; /* spacing between icon and text */
+}
 
