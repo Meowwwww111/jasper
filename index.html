@@ -96,11 +96,28 @@
     <p>© 2025 Jasper (Ng Jing Heng)</p>
   </footer>
 
-  <script>
-  // Close the mobile nav menu after clicking a link
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.getElementById('toggle').checked = false;
+<script>
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const toggle = document.getElementById('toggle');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+      if (isMobile && toggle.checked) {
+        // Close menu, wait for animation, then scroll
+        toggle.checked = false;
+        setTimeout(() => {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 400); // match your CSS transition
+      } else {
+        // Desktop: scroll immediately
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   });
 </script>
