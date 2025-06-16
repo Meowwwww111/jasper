@@ -82,9 +82,6 @@ html {
   }
 }
 
-
-
-
 header {
   background-color: #222;
   color: #fff;
@@ -109,3 +106,23 @@ footer {
   padding: 1rem;
   font-size: 0.9rem;
 }
+
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  background: none;
+  border: none;
+  outline: none;
+  color: black;
+  font-size: 50px; /* Make the arrow fat and big */
+  cursor: pointer;
+  display: none;
+  transition: color 0.3s ease;
+}
+
+#backToTop:hover {
+  color: black; /* Optional hover color */
+}
+
