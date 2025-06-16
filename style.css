@@ -128,25 +128,22 @@ footer {
 
 .header-flex {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
   background-color: #222;
   color: #fff;
   padding: 2rem;
-  flex-wrap: wrap;
-}
-
-.header-text {
-  flex: 1;
-  min-width: 250px;
+  gap: 2rem; /* space between image and text */
+  flex-wrap: wrap; /* stack on mobile */
 }
 
 .header-image img {
-  width: 150px;
+  width: 120px; /* or 150px depending on your style */
   height: auto;
-  border-radius: 10px; /* Optional: make corners round */
+  border-radius: 10px;
   object-fit: cover;
 }
+
 
 @media (max-width: 600px) {
   .header-flex {
@@ -155,7 +152,7 @@ footer {
   }
 
   .header-image img {
-    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 }
 
