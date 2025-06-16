@@ -126,3 +126,36 @@ footer {
   color: black; /* Optional hover color */
 }
 
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  color: #fff;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+.header-text {
+  flex: 1;
+  min-width: 250px;
+}
+
+.header-image img {
+  width: 150px;
+  height: auto;
+  border-radius: 10px; /* Optional: make corners round */
+  object-fit: cover;
+}
+
+@media (max-width: 600px) {
+  .header-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-image img {
+    margin-top: 1rem;
+  }
+}
+
