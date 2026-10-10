@@ -30,14 +30,18 @@
     <header>
       <p class="eyebrow">Singapore · Woodlands</p>
       <h1>Weather background previews</h1>
-      <p>Each background is an 8-second looping MP4. Rainfall is rendered into the rain video itself; the portfolio selects a scene from the current local weather.</p>
+      <p>The portfolio uses local time to choose day or night, then adds clear, cloud, or rain conditions in the video itself. Every clip is an 8-second fixed-camera loop.</p>
     </header>
     <section class="grid" aria-label="Weather video previews">
-      <article><video controls autoplay muted loop playsinline preload="auto" poster="assets/jasper-woodlands-rain-start.jpg"><source src="assets/weather-rain.mp4?v=2" type="video/mp4"></video><div class="meta"><h2>Rain</h2><span>Rainy Woodlands street · steady falling rain</span></div></article>
-      <article><video controls muted loop playsinline preload="metadata" poster="assets/jasper-woodlands-sun-start.jpg"><source src="assets/weather-sun.mp4?v=2" type="video/mp4"></video><div class="meta"><h2>Sunny</h2><span>Warm light · gentle brightness shift</span></div></article>
-      <article><video controls muted loop playsinline preload="metadata" poster="assets/jasper-woodlands-cloud-start.jpg"><source src="assets/weather-cloud.mp4?v=2" type="video/mp4"></video><div class="meta"><h2>Cloudy</h2><span>Overcast sky · drifting cloud shadows</span></div></article>
+      <article><video controls autoplay muted loop playsinline preload="metadata" poster="assets/jasper-woodlands-sun-start.jpg"><source src="assets/weather-day-clear.mp4?v=3" type="video/mp4"></video><div class="meta"><h2>Day · Clear</h2><span>Warm daylight · gentle moving sunlight</span></div></article>
+      <article><video controls muted loop playsinline preload="metadata" poster="assets/jasper-woodlands-sun-start.jpg"><source src="assets/weather-day-cloud.mp4?v=3" type="video/mp4"></video><div class="meta"><h2>Day · Cloudy</h2><span>Daylight · slow drifting cloud shadows</span></div></article>
+      <article><video controls muted loop playsinline preload="metadata" poster="assets/jasper-woodlands-sun-start.jpg"><source src="assets/weather-day-rain.mp4?v=3" type="video/mp4"></video><div class="meta"><h2>Day · Rain</h2><span>Daylight · rain rendered into the video</span></div></article>
+      <article><video controls muted loop playsinline preload="metadata" poster="assets/jasper-woodlands-night-start.jpg"><source src="assets/weather-night-clear.mp4?v=3" type="video/mp4"></video><div class="meta"><h2>Night · Clear</h2><span>Woodlands at night · steady streetlights</span></div></article>
+      <article><video controls muted loop playsinline preload="metadata" poster="assets/jasper-woodlands-night-start.jpg"><source src="assets/weather-night-cloud.mp4?v=3" type="video/mp4"></video><div class="meta"><h2>Night · Cloudy</h2><span>Night · subtle drifting cloud shadows</span></div></article>
+      <article><video controls muted loop playsinline preload="metadata" poster="assets/jasper-woodlands-night-start.jpg"><source src="assets/weather-night-rain.mp4?v=3" type="video/mp4"></video><div class="meta"><h2>Night · Rain</h2><span>Night · rain rendered into the video</span></div></article>
     </section>
-    <footer><a href="jasper-ai-photo-led.html">← Back to Jasper’s portfolio</a></footer>
+    <footer><a href="./">← Back to Jasper’s portfolio</a></footer>
   </main>
 </body>
 </html>
+

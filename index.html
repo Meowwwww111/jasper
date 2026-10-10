@@ -51,11 +51,7 @@
     .hero { position: relative; overflow: hidden; color: #f7f8fc; background: linear-gradient(135deg, #0d1627 0%, #121e32 54%, #101827 100%); }
     .hero-video { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 56%; opacity: .46; filter: saturate(.78) brightness(.62) contrast(.92) blur(1px); transform: none; pointer-events: none; transition: opacity .6s ease; }
     .hero-video.is-changing { opacity: 0; transition: opacity .45s ease; }
-    .hero-weather-scene { position: absolute; z-index: 0; inset: -3%; opacity: 0; background-position: center 54%; background-size: cover; filter: saturate(.84) brightness(.72); transform: none; transition: opacity .65s ease; pointer-events: none; }
-    .hero-weather-sun { background-image: url('assets/jasper-woodlands-sun-start.jpg'); }
-    .hero-weather-cloud { background-image: url('assets/jasper-woodlands-cloud-start.jpg'); }
-    .hero-weather-rain { background-image: url('assets/jasper-woodlands-rain-start.jpg'); }
-    .hero[data-weather-scene="sun"] .hero-weather-sun, .hero[data-weather-scene="cloud"] .hero-weather-cloud, .hero[data-weather-scene="rain"] .hero-weather-rain { opacity: 0; }
+    .hero-weather-scene { position: absolute; z-index: 0; inset: 0; opacity: 0; background-image: var(--weather-poster); background-position: center 54%; background-size: cover; filter: saturate(.84) brightness(.72); pointer-events: none; }
     .weather-tools { display: grid; justify-items: start; gap: 7px; margin-top: 22px; }
     .weather-status { display: inline-flex; align-items: center; gap: 8px; min-height: 30px; color: #dbe6f5; font-size: 12px; font-weight: 650; }
     .weather-status::before { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 12px rgb(157 229 228 / 75%); content: ""; }
@@ -143,7 +139,8 @@
     .education-card::before { position: absolute; inset: 0 auto 0 0; width: 4px; background: var(--cyan); content: ""; }
     .education-date { margin: 0 0 18px; color: #6673d7; font-size: 10px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
     .education-card h3 { margin: 0; font-size: 18px; letter-spacing: -.025em; }
-    .education-card p:last-child { margin: 7px 0 0; color: #606c80; font-size: 13px; }
+    .education-card p:not(.education-date) { margin: 7px 0 0; color: #606c80; font-size: 13px; }
+    .education-gpa strong { color: #28344a; }
 
     .side-hustle-section { background: #eef1f7; }
     .side-hustle-card { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 20px; margin-top: 24px; padding: 24px; border: 1px solid #dfe5ef; border-radius: 20px; background: linear-gradient(110deg, #fff 0%, #fff 68%, #e8f8f7 100%); }
@@ -187,6 +184,7 @@
     .cca-section { background: #fff; }
     .cca-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 25px; }
     .cca-item { display: flex; align-items: center; gap: 10px; min-height: 70px; padding: 16px; border: 1px solid var(--line); border-radius: 16px; background: #fcfdff; font-size: 14px; font-weight: 700; }
+    .cca-item small { display: block; margin-top: 4px; color: #65718a; font-size: 11px; font-weight: 550; }
     .cca-dot { width: 9px; height: 9px; flex: 0 0 9px; border-radius: 50%; background: var(--blue); transition: transform .2s ease, box-shadow .2s ease; }
     .cca-item:hover .cca-dot { transform: scale(1.35); box-shadow: 0 0 0 5px rgb(102 132 255 / 13%); }
     .back-to-top { position: fixed; z-index: 20; right: 24px; bottom: 24px; display: grid; width: 54px; height: 54px; place-items: center; border: 1px solid transparent; border-radius: 50%; color: #e9ffff; background: linear-gradient(145deg, rgb(32 49 75 / 97%), rgb(13 21 36 / 97%)) padding-box, linear-gradient(145deg, var(--cyan), #6684ff) border-box; box-shadow: 0 9px 28px rgb(16 24 39 / 28%), inset 0 1px 0 rgb(255 255 255 / 18%); cursor: pointer; transition: transform .24s cubic-bezier(.2,.75,.25,1), box-shadow .24s ease, filter .24s ease; }
@@ -280,7 +278,7 @@
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
       .hero-weather-scene { transform: none; }
       .hero-video { opacity: 0 !important; }
-      .hero[data-weather-scene="sun"] .hero-weather-sun, .hero[data-weather-scene="cloud"] .hero-weather-cloud, .hero[data-weather-scene="rain"] .hero-weather-rain { opacity: 1; }
+        .hero-weather-scene { opacity: 1; }
     }
   </style>
 </head>
@@ -306,13 +304,11 @@
     </div>
   </header>
 
-  <div id="top" class="hero" data-weather-scene="rain">
-    <video class="hero-video" muted loop playsinline preload="metadata" poster="assets/jasper-woodlands-rain-start.jpg" aria-hidden="true" tabindex="-1">
-      <source id="hero-video-source" src="assets/weather-rain.mp4?v=2" type="video/mp4">
+  <div id="top" class="hero" data-weather-scene="day-clear">
+    <video class="hero-video" muted loop playsinline preload="metadata" poster="assets/jasper-woodlands-sun-start.jpg" aria-hidden="true" tabindex="-1">
+      <source id="hero-video-source" src="assets/weather-day-clear.mp4?v=3" type="video/mp4">
     </video>
-    <div class="hero-weather-scene hero-weather-sun" aria-hidden="true"></div>
-    <div class="hero-weather-scene hero-weather-cloud" aria-hidden="true"></div>
-    <div class="hero-weather-scene hero-weather-rain" aria-hidden="true"></div>
+    <div class="hero-weather-scene" aria-hidden="true"></div>
     <div class="hero-weather-shade" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div>
@@ -412,11 +408,13 @@
             <p class="education-date">2023 — 2026</p>
             <h3>Nanyang Technological University</h3>
             <p>Bachelor of Engineering, Mechanical Engineering · Intelligent Manufacturing</p>
+            <p class="education-gpa"><strong>GPA</strong> 4.0</p>
           </article>
           <article class="education-card">
             <p class="education-date">2018 — 2021</p>
             <h3>Ngee Ann Polytechnic</h3>
             <p>Diploma in Aerospace Technology · Minor in Business Management</p>
+            <p class="education-gpa"><strong>GPA</strong> 3.6</p>
           </article>
         </div>
       </div>
@@ -487,7 +485,7 @@
 
     <section class="cca-section" id="cca" aria-labelledby="cca-title">
       <div class="wrap"><p class="section-kicker">Beyond work</p><h2 id="cca-title">Co-curricular activities &amp; hobbies.</h2>
-        <div class="cca-grid"><div class="cca-item"><span class="cca-dot" aria-hidden="true"></span>Windsurfing</div><div class="cca-item"><span class="cca-dot" aria-hidden="true"></span>DJ</div><div class="cca-item"><span class="cca-dot" aria-hidden="true"></span>Volleyball</div><div class="cca-item"><span class="cca-dot" aria-hidden="true"></span>Badminton</div></div>
+        <div class="cca-grid"><div class="cca-item"><span class="cca-dot" aria-hidden="true"></span>Windsurfing</div><div class="cca-item"><span class="cca-dot" aria-hidden="true"></span><span>DJ <small>Mandopop · Techno · Hardstyle</small></span></div><div class="cca-item"><span class="cca-dot" aria-hidden="true"></span>Volleyball</div><div class="cca-item"><span class="cca-dot" aria-hidden="true"></span>Badminton</div></div>
       </div>
     </section>
 
@@ -531,8 +529,11 @@
     const weatherStatus = document.querySelector('#weather-status');
     const locationButton = document.querySelector('#weather-location');
     const fallbackVideo = 'assets/jasper-portfolio-rain-city-15s.mp4';
-    const weatherScenes = { sun: 'assets/weather-sun.mp4?v=2', cloud: 'assets/weather-cloud.mp4?v=2', rain: 'assets/weather-rain.mp4?v=2' };
-    const weatherPosters = { sun: 'assets/jasper-woodlands-sun-start.jpg', cloud: 'assets/jasper-woodlands-cloud-start.jpg', rain: 'assets/jasper-woodlands-rain-start.jpg' };
+    const weatherScenes = {
+      'day-clear': 'assets/weather-day-clear.mp4?v=3', 'day-cloud': 'assets/weather-day-cloud.mp4?v=3', 'day-rain': 'assets/weather-day-rain.mp4?v=3',
+      'night-clear': 'assets/weather-night-clear.mp4?v=3', 'night-cloud': 'assets/weather-night-cloud.mp4?v=3', 'night-rain': 'assets/weather-night-rain.mp4?v=3'
+    };
+    const weatherPosters = { 'day-clear': 'assets/jasper-woodlands-sun-start.jpg', 'day-cloud': 'assets/jasper-woodlands-sun-start.jpg', 'day-rain': 'assets/jasper-woodlands-sun-start.jpg', 'night-clear': 'assets/jasper-woodlands-night-start.jpg', 'night-cloud': 'assets/jasper-woodlands-night-start.jpg', 'night-rain': 'assets/jasper-woodlands-night-start.jpg' };
     const woodlands = { latitude: 1.4485, longitude: 103.7698, label: 'Woodlands, Singapore' };
     const weatherName = code => {
       if (code === 0) return 'Clear';
@@ -547,19 +548,20 @@
       if (code >= 95) return 'Thunderstorm';
       return 'Local conditions';
     };
-    const weatherScene = code => {
+    const weatherCondition = code => {
       if ((code >= 51 && code <= 67) || (code >= 80 && code <= 82) || code >= 95) return 'rain';
-      if (code === 0 || code === 1) return 'sun';
+      if (code === 0 || code === 1) return 'clear';
       return 'cloud';
     };
-    let activeWeatherScene = 'rain';
+    let activeWeatherScene = 'day-clear';
     let sceneChangeToken = 0;
     const setWeatherScene = scene => {
       const token = ++sceneChangeToken;
       activeWeatherScene = scene;
-      weatherStatus.dataset.condition = scene;
+      weatherStatus.dataset.condition = scene.split('-')[1];
       hero.dataset.weatherScene = scene;
-      heroVideo.poster = weatherPosters[scene] || weatherPosters.rain;
+      heroVideo.poster = weatherPosters[scene] || weatherPosters['day-clear'];
+      hero.style.setProperty('--weather-poster', `url("${weatherPosters[scene] || weatherPosters['day-clear']}")`);
       if (motionPreference.matches) {
         heroVideo.classList.add('is-changing');
         heroVideo.pause();
@@ -604,14 +606,16 @@
         const data = await response.json();
         const current = data.current;
         if (!current || !Number.isFinite(Number(current.weather_code))) throw new Error('Weather data unavailable');
-        const scene = weatherScene(Number(current.weather_code));
-        const dayPart = current.is_day === 0 ? ' · night' : '';
-        weatherStatus.textContent = `${label} · ${weatherName(Number(current.weather_code))}${dayPart}`;
+        const code = Number(current.weather_code);
+        const isDay = Number(current.is_day) !== 0;
+        const scene = `${isDay ? 'day' : 'night'}-${weatherCondition(code)}`;
+        const dayPart = isDay ? 'daytime' : 'night';
+        weatherStatus.textContent = `${label} · ${weatherName(code)} · ${dayPart}`;
         setWeatherScene(scene);
       } catch (error) {
         activeWeatherLocation = woodlands;
-        weatherStatus.textContent = `${woodlands.label} · weather unavailable; showing the rain scene`;
-        setWeatherScene('rain');
+        weatherStatus.textContent = `${woodlands.label} · weather unavailable; showing clear daytime scene`;
+        setWeatherScene('day-clear');
       }
     };
     requestWeather(woodlands.latitude, woodlands.longitude, woodlands.label);
@@ -691,3 +695,4 @@
   </script>
 </body>
 </html>
+
