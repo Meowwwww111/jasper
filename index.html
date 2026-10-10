@@ -63,6 +63,8 @@
     .weather-location { min-height: 34px; padding: 0 13px; border: 1px solid rgb(206 221 243 / 38%); border-radius: 999px; color: #eef4ff; background: rgb(16 24 39 / 42%); font: inherit; font-size: 11px; font-weight: 700; cursor: pointer; transition: border-color .2s ease, background .2s ease, transform .2s ease; }
     .weather-location:hover:not(:disabled) { transform: translateY(-2px); border-color: var(--cyan); background: rgb(157 229 228 / 10%); }
     .weather-location:disabled { opacity: .72; cursor: wait; }
+    .weather-preview-link { color: var(--cyan); font-size: 11px; font-weight: 700; text-decoration: none; transition: color .2s ease, transform .2s ease; }
+    .weather-preview-link:hover, .weather-preview-link:focus-visible { color: white; transform: translateX(3px); }
     .weather-note, .weather-credit { max-width: 420px; margin: 0; color: #aab8d2; font-size: 10px; line-height: 1.5; }
     .weather-credit a { color: #c7d5ee; }
     .hero::before { position: absolute; z-index: 2; content: ""; width: 470px; height: 470px; right: -145px; top: -250px; border: 1px solid rgb(157 229 228 / 17%); border-radius: 50%; box-shadow: 0 0 0 54px rgb(157 229 228 / 3%), 0 0 0 110px rgb(157 229 228 / 3%); pointer-events: none; }
@@ -324,6 +326,7 @@
         <div class="weather-tools" aria-label="Local weather background">
           <div class="weather-status" id="weather-status" data-condition="rain" role="status" aria-live="polite">Woodlands, Singapore · checking current weather…</div>
           <button class="weather-location" id="weather-location" type="button">Use my location</button>
+          <a class="weather-preview-link" href="weather-video-previews.html">Preview all weather videos ↗</a>
           <p class="weather-note">Weather lookups use Open-Meteo. If you choose your location, approximate coordinates are sent for the lookup and are not saved by this page.</p>
           <p class="weather-credit">Weather data: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a> · background follows local conditions.</p>
         </div>
