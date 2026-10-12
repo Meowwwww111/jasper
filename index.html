@@ -153,6 +153,7 @@
     .side-hustle-link { display: inline-flex; align-items: center; min-height: 42px; padding: 0 15px; border-radius: 999px; color: white; background: #147f86; text-decoration: none; font-size: 12px; font-weight: 800; white-space: nowrap; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
     .side-hustle-link:hover, .side-hustle-link:focus-visible { transform: translateY(-3px); background: #106a70; box-shadow: 0 9px 18px rgb(20 127 134 / 25%); }
     .side-hustle-link:active { transform: translateY(1px) scale(.97); }
+    @media (max-width: 960px) { .side-hustle-grid { grid-template-columns: 1fr; } }
 
     .scroll-reveal { opacity: 0; translate: 0 28px; rotate: x -7deg; filter: blur(5px); transform-origin: center; backface-visibility: hidden; transition: opacity .48s ease, translate .62s cubic-bezier(.2,.75,.25,1), rotate .62s cubic-bezier(.2,.75,.25,1), filter .48s ease; transition-delay: var(--reveal-delay, 0ms); }
     .scroll-reveal[data-reveal-state="visible"] { opacity: 1; translate: 0 0; rotate: x 0deg; filter: blur(0); }
